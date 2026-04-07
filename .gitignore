@@ -1,0 +1,29 @@
+# Data klasörü
+data/
+datasets/
+
+# GPU / environment klasörleri
+gpu_env_310/
+venv/
+env/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Model dosyaları (çok büyükse)
+*.pt
+*.pth
+*.h5
+*.onnx
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# Logs
+logs/
+*.log
