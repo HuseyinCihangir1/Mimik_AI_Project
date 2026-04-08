@@ -18,7 +18,7 @@ train_gen, valid_gen, test_gen = get_data_generators(DATA)
 
 # 2. MODEL: ResNet-50 Baseline (Transfer Learning) 
 model = base_model(model_type="resnet50")
-model.compile(optimizer=Adam(1e-3), loss="categorical_crossentropy", metrics=["accuracy"])
+model.compile(optimizer=Adam(1e-4), loss="categorical_crossentropy", metrics=["accuracy"])
 
 # 3. TRAIN: Eğitimi başlat ve en iyiyi kaydet 
 history = train_model(model, train_gen, valid_gen, epochs=10, model_path=MODEL_PATH)
@@ -29,3 +29,10 @@ plot_history(history, EVAL)
 evaluate_model(model, test_gen, EVAL)
 
 print(f"✅ İşlem tamam! Sonuçlar burada: {EVAL}")
+
+
+
+
+
+
+model.compile(optimizer=Adam(1e-4), loss="categorical_crossentropy", metrics=["accuracy"])
