@@ -8,14 +8,14 @@ venv/
 env/
 .venv/
 
+
 # Python cache
 __pycache__/
 *.pyc
 
 # Model dosyaları (çok büyükse)
-*.pt
-*.pth
-*.h5
+models/*.keras
+*.keras
 *.onnx
 
 # Jupyter
