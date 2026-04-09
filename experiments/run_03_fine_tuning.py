@@ -59,14 +59,12 @@ with tf.device('/GPU:0'):
     for layer in model.layers[-50:]:
         layer.trainable = True
 
-    # ÇOK DÜŞÜK LEARNING RATE: Fine-tuning'de 1e-5 (0.00001) kullanmak standarttır.
-    # Bu, modelin ağırlıkları bozmadan yavaşça şekillenmesini sağlar.
-    optimizer = Adam(learning_rate=1e-5) 
+    optimizer = Adam(learning_rate=1e-5) #L.R.'i dusuk tutuyoruz 
     
     model.compile(optimizer=optimizer, loss="categorical_crossentropy", metrics=["accuracy"])
 
-    # EĞİTİM (Daha sabırlı bir eğitim için 25 Epoch)
-    history = train_model(model, train_gen, valid_gen, epochs=25, model_path=NEW_MODEL_PATH)
+    # EĞİTİM (Daha sabırlı bir eğitim için Epoch'u 20'e cıkarrdık)
+    history = train_model(model, train_gen, valid_gen, epochs=20, model_path=NEW_MODEL_PATH)
 
 # Kaydetme
 model.save(NEW_MODEL_PATH, include_optimizer=False)
@@ -75,4 +73,4 @@ model.save(NEW_MODEL_PATH, include_optimizer=False)
 plot_history(history, EVAL)
 evaluate_model(model, test_gen, EVAL)
 
-print(f"\n✅ Stage 3 tamamlandı! Hedef %70+. Sonuçlar: {EVAL}")
+print(f"\n✅ Stage 3 tamamlandı!  {EVAL}")
