@@ -1,6 +1,7 @@
 from tensorflow.keras.applications import ResNet50, EfficientNetB0
 from tensorflow.keras.layers import Dense, GlobalAveragePooling2D, Dropout, BatchNormalization
 from tensorflow.keras.models import Model
+from tensorflow.keras import regularizers
 
 def base_model(
         model_type="resnet50", 
@@ -20,7 +21,7 @@ def base_model(
     # BatchNormalization ekleyerek verinin dağılımını düzeltiyoruz (Öğrenmeyi hızlandırır)
     x = BatchNormalization()(x)
     
-    x = Dense(512, activation="relu")(x)
+    x = Dense(512, activation="relu", kernel_regularizer=regularizers.l2(0.01))(x) #early stopping yapılıp overfitting azaltılır
     x = Dropout(0.5)(x)
     
     x = Dense(256, activation="relu")(x) # Ekstra bir katman kapasiteyi artırır
