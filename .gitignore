@@ -2,7 +2,7 @@
 data/
 datasets/
 
-# GPU / environment klasörleri
+# GPU / environment 
 gpu_env_310/
 venv/
 env/
