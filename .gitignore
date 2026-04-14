@@ -27,3 +27,8 @@ models/*.keras
 # Logs
 logs/
 *.log
+
+build/
+dist/
+*.exe
+*.spec
